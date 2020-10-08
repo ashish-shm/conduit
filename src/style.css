@@ -2,15 +2,48 @@
   padding: 30px;
 }
 
+.container {
+  max-width: 1800px;
+  margin: 0 auto;
+}
+
+.headerDiv {
+  padding: 30px 40px;
+  background-color: slategray;
+}
+
 .flex {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+}
+
+.flexA-T {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 .articlesDiv {
   width: 50%;
 }
 
 .tagsDiv {
-  width: 25%;
+  width: 15%;
+}
+
+.inactiveNav {
+  font-size: 24px;
+  background-color: darkgrey;
+  border-radius: 10px;
+  color: black;
+  margin-left: 15px;
+  padding: 20px;
+}
+
+.activeNav {
+  font-size: 24px;
+  background-color: rgb(221, 218, 218);
+  border-radius: 10px;
+  color: black;
+  margin-left: 15px;
+  padding: 20px;
 }

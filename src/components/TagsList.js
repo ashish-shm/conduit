@@ -19,15 +19,11 @@ function TagsList() {
 
   if (tags) {
     return (
-      <Grid>
-        <Grid.Row>
-          <Menu vertical>
-            {tags.map((tag) => {
-              return <Menu.Item>{tag}</Menu.Item>;
-            })}
-          </Menu>
-        </Grid.Row>
-      </Grid>
+      <Menu vertical>
+        {tags.map((tag) => {
+          return <Menu.Item onClick={() => {}}>{tag}</Menu.Item>;
+        })}
+      </Menu>
     );
   } else {
     return <h1>Loading</h1>;
