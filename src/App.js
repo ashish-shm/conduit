@@ -12,7 +12,7 @@ function App() {
         <Route path="/" component={HomePage} exact />
         <Route path="/login" component={LoginPage} />
         <Route path="/register" component={Register} exact />
-        <Route path="/dasshboard" component={DashBoard} exact />
+        <Route path="/dashboard" component={DashBoard} exact />
       </Switch>
     </main>
   );
