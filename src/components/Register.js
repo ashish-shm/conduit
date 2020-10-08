@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import TextError from "./TextError";
 import NonAuthHeader from "./NonAuthHeader";
+import { useHistory } from "react-router-dom";
 
 const initialValues = {
   username: "",
@@ -10,24 +11,44 @@ const initialValues = {
   password: "",
 };
 
-const onSubmit = (values, submitProps) => {
-  console.log("Form data", values);
-  console.log("submitProps", submitProps);
-  submitProps.setSubmitting(false);
-};
-
-const validationSchema = Yup.object({
-  password: Yup.string()
-    .required("No password provided.")
-    .min(6, "Password is too short - should be 6 chars minimum.")
-    .matches(/[a-zA-Z]/, "Password can only contain Latin letters."),
-  email: Yup.string().email("Invalid email format").required("Required"),
-  username: Yup.string()
-    .min(6, "Username is too short - should be 6 chars minimum.")
-    .required("Required"),
-});
-
 function Register() {
+  const [error, setError] = useState("");
+  let history = useHistory();
+  let url = "https://mighty-oasis-08080.herokuapp.com/api/users";
+
+  const onSubmit = (values, submitProps) => {
+    console.log("Form data", values);
+    console.log("submitProps", submitProps);
+
+    fetch(url, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ user: values }),
+    })
+      .then((res) => {
+        console.log(res.json());
+        if (res.status === 200) {
+          console.log(res);
+          return history.push("/dashboard");
+        }
+      })
+      .then(({ user }) => {
+        localStorage.setItem("authToken", user.token);
+      })
+      .catch((err) => setError(err));
+    submitProps.setSubmitting(false);
+  };
+
+  const validationSchema = Yup.object({
+    password: Yup.string()
+      .required("No password provided.")
+      .min(6, "Password is too short - should be 6 chars minimum.")
+      .matches(/[a-zA-Z]/, "Password can only contain Latin letters."),
+    email: Yup.string().email("Invalid email format").required("Required"),
+    username: Yup.string()
+      .min(6, "Username is too short - should be 6 chars minimum.")
+      .required("Required"),
+  });
   return (
     <>
       <NonAuthHeader />
