@@ -8,9 +8,9 @@
 
 #### Day 1 :
 
- - [ ] React + React Router DOM + Formik setup
- - [ ] Login Page
- - [ ] Signup Page
+ - [x] React + React Router DOM + Formik setup
+ - [x] Login Page
+ - [x] Signup Page
  - [ ] Dashboard Page
  - [ ] Complete Authentication
 
