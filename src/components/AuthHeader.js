@@ -1,11 +1,13 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 
 export default function AuthHeader() {
   return (
     <div className="header">
       <header className="flex">
-        <h1 className="headerTitle">CONDUIT</h1>
+        <Link to="/" className="headerTitle">
+          CONDUIT
+        </Link>
         <nav className="navLinks flex">
           <NavLink to="/" className="inactiveNav" activeClassName="activeNav">
             Home
