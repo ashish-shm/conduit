@@ -1,0 +1,16 @@
+.card {
+  padding: 30px;
+}
+
+.flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.articlesDiv {
+  width: 50%;
+}
+
+.tagsDiv {
+  width: 25%;
+}

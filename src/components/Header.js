@@ -25,10 +25,18 @@ export default function NonAuthHeader() {
       <header className="flex">
         <h1 className="headerTitle">CONDUIT</h1>
         <nav className="navLinks flex">
-          <NavLink to="/" className="inactiveNav" activeClassName="activeNav">
+          <NavLink
+            to="/login"
+            className="inactiveNav"
+            activeClassName="activeNav"
+          >
             Login
           </NavLink>
-          <NavLink to="#" className="inactiveNav" activeClassName="activeNav">
+          <NavLink
+            to="/register"
+            className="inactiveNav"
+            activeClassName="activeNav"
+          >
             Register
           </NavLink>
         </nav>
