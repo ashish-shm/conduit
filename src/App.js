@@ -4,6 +4,7 @@ import HomePage from "./components/HomePage";
 import LoginPage from "./components/LoginPage";
 import Register from "./components/Register";
 import DashBoard from "./components/DashBoard";
+import "semantic-ui-css/semantic.min.css";
 
 function App() {
   return (
