@@ -12,7 +12,7 @@ const initialValues = {
 };
 
 function Register() {
-  const [error, setError] = useState("");
+  let [error, setError] = useState("");
   let history = useHistory();
   let url = "https://mighty-oasis-08080.herokuapp.com/api/users";
 
@@ -26,16 +26,18 @@ function Register() {
       body: JSON.stringify({ user: values }),
     })
       .then((res) => {
-        console.log(res.json());
-        if (res.status === 200) {
-          console.log(res);
-          return history.push("/dashboard");
-        }
+        
+        
+          res.json();
+        
       })
-      .then(({ user }) => {
-        localStorage.setItem("authToken", user.token);
+      .then((data) => {
+      
+        localStorage.setItem("authToken", data.user.token);
+        return history.push("/dashboard");
       })
       .catch((err) => setError(err));
+    console.log(error);
     submitProps.setSubmitting(false);
   };
 
