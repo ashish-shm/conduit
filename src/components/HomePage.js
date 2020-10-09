@@ -7,7 +7,7 @@ import NonAuthHeader from "./NonAuthHeader";
 function HomePage() {
   return (
     <>
-      <NonAuthHeader />
+      {localStorage.authToken ? <AuthHeader /> : <NonAuthHeader />}
       <div className="flexA-T container">
         <div className="articleDiv">
           <Articles />

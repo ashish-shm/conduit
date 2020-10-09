@@ -25,12 +25,12 @@ function Register() {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ user: values }),
     })
-      .then((res) => {
+      .then((res) => 
         
         
-          res.json();
+          res.json()
         
-      })
+      )
       .then((data) => {
       
         localStorage.setItem("authToken", data.user.token);

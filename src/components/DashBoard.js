@@ -9,7 +9,10 @@ function DashBoard() {
   let history = useHistory();
   let url = "https://mighty-oasis-08080.herokuapp.com/api/user"
   useEffect(() => {
-    fetch(url)
+    fetch(url, {
+      headers: {
+        authorization: `Token ${localStorage.authToken}`,
+      }})
       .then((res) => res.json())
       .then((data) => {
         localStorage.setItem("authToken", data.user.token)

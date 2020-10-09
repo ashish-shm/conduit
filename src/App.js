@@ -10,8 +10,8 @@ import "./style.css";
 
 
 function App() {
-  // let [user,setUser] = useState(null)
-  // let [loggedIn, setLoggedIn] = useState(false)
+  let [user,setUser] = useState(null)
+  let [loggedIn, setLoggedIn] = useState(false)
 
   let url = "https://mighty-oasis-08080.herokuapp.com/api/user"
   useEffect(() => {
@@ -19,8 +19,10 @@ function App() {
     fetch(url, {
       headers: {
         authorization: `Token ${localStorage.authToken}`,
-      }}).then(res => res.json()).then((data) => localStorage.setItem("authToken",data.user.token))
-  }},[])
+      }}).then(res => res.json()).then((data) => {setUser(data.user);
+        setLoggedIn(true);
+      }
+   ) }},[])
   return (
     <main>
       <Switch>
