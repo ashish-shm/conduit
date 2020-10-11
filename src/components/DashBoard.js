@@ -2,7 +2,6 @@ import React,{useState,useEffect} from "react";
 import { useHistory} from "react-router-dom";
 import Articles from "./Articles";
 import AuthHeader from "./AuthHeader";
-import TagsList from "./TagsList";
 
 function DashBoard() {
   const [error, setError] = useState("")
@@ -24,20 +23,16 @@ function DashBoard() {
       <>
         <AuthHeader />
         <div className="flexA-T container">
-          <div className="articleDiv">
+          
             <Articles />
-          </div>
-          <div className="tagsDiv">
-            <TagsList />
-          </div>
+         
+          
         </div>
       </>
     );
   }
   else {
-    return (
-      <h1>Loading ...</h1>
-    )
+    history.push('/login')
   }
 }
 
