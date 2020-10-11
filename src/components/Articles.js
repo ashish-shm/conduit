@@ -11,7 +11,7 @@ function Articles() {
   let [selectedTag, setSelectedTag] = useState(null)
   let articlesUrl =
     `https://mighty-oasis-08080.herokuapp.com/api/articles?limit=10&offset=0${selectedTag ? "&tag=" + selectedTag : null}`;
-    const tagsUrl = "https://mighty-oasis-08080.herokuapp.com/api/tags";
+  let tagsUrl = "https://mighty-oasis-08080.herokuapp.com/api/tags";
 
   useEffect(() => {
     fetch(articlesUrl)
@@ -73,7 +73,7 @@ function Articles() {
        </>
 
     );
-  } else { let dependency = true
+  } else {
     return <h1>Loading</h1>;
   }
 
